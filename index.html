@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just One Question ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ff4e8a,#ff85b3,#ffd1dc);
+animation:bg 8s infinite alternate;
+}
+
+@keyframes bg{
+0%{filter:hue-rotate(0deg);}
+100%{filter:hue-rotate(30deg);}
+}
+
+.container{
+text-align:center;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+position:relative;
+}
+
+h1{
+font-size:42px;
+color:#ff2d75;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+button{
+padding:15px 35px;
+font-size:22px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+transition:.2s;
+margin:10px;
+}
+
+#yes{
+background:#28a745;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.08);
+}
+
+#no{
+background:#dc3545;
+color:white;
+position:absolute;
+}
+
+#result{
+display:none;
+margin-top:25px;
+font-size:30px;
+color:#ff2d75;
+font-weight:bold;
+animation:pop .5s;
+}
+
+@keyframes pop{
+from{transform:scale(.2);}
+to{transform:scale(1);}
+}
+
+.heart{
+position:fixed;
+font-size:30px;
+animation:fall 4s linear infinite;
+pointer-events:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ My Love ❤️</h1>
+
+<p>Will You Be My Wife? 💍</p>
+
+<button id="yes">YES ❤️</button>
+
+<button id="no">NO 😅</button>
+
+<div id="result">
+YAYYYYY!! ❤️<br>
+I Love You Forever 💍❤️
+</div>
+
+</div>
+
+<script>
+
+const no=document.getElementById("no");
+
+function moveButton(){
+
+let x=Math.random()*(window.innerWidth-120);
+let y=Math.random()*(window.innerHeight-80);
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+}
+
+no.addEventListener("mouseover",moveButton);
+no.addEventListener("touchstart",moveButton);
+
+document.getElementById("yes").onclick=function(){
+
+document.getElementById("result").style.display="block";
+
+for(let i=0;i<100;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+
+heart.style.fontSize=(Math.random()*25+20)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),5000);
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
